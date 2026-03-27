@@ -33,4 +33,4 @@ Project includes ready-to-use build tasks:
 
 ## Author
 
-Michael Prostov
+Alexander Davidov
