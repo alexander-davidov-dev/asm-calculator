@@ -1,0 +1,44 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build ASM",
+      "type": "shell",
+      "command": "nasm",
+      "args": [
+        "-f",
+        "win32",
+        "main.asm",
+        "-o",
+        "main.obj"
+      ],
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Link ASM",
+      "type": "shell",
+      "command": "golink",
+      "args": [
+        "/console",
+        "main.obj",
+        "kernel32.dll",
+        "user32.dll"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Build and Run ASM",
+      "dependsOn": [
+        "Build ASM",
+        "Link ASM"
+      ],
+      "type": "shell",
+      "command": "main.exe",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}
